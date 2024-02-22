@@ -121,8 +121,49 @@ footer {
     margin-top: 20px;
     color: #FFF;
     font-size: 13px;
+    text-align: center;
 }
 
-footer span{
+footer a{
     text-decoration: underline;
+    color: white;
+    cursor: pointer;
+}
+footer a:hover{
+    color:yellow;
+}
+
+.hidden-container{
+    display: none;
+}
+
+.start-game{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.start-btn{
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    background-color: aquamarine;
+    cursor: pointer;
+    margin-top: 0.75rem;
+    border-radius: 10px;
+}
+.hidden-select{
+    padding: 10px 20px;
+    color:white;
+    background-color: #333;
+    border-radius: 10px;
+    margin-top: 0.3rem;
+    
+}
+.hidden-title{
+    color:white;
+    font-weight: 600;
+    font-size: 23px;
+
 }
