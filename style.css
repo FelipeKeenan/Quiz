@@ -12,6 +12,9 @@ body {
     flex-direction: column;
     background-color: #333;
     font-family: Arial, Helvetica, sans-serif;
+    background-image: url('https://www.searchenginejournal.com/wp-content/uploads/2020/03/how-to-make-compelling-qa-videos-to-build-trust-in-your-brand-5e676591b8606-1280x720.png');
+    background-size: cover;
+    padding: 0px 15px;
 }
 
 h1 {
@@ -26,6 +29,7 @@ h1 {
     top: 0;
     right: 0;
 }
+
 .progress--bar {
     background-color: #00FF00;
     height: 100%;
@@ -43,21 +47,28 @@ h1 {
 }
 
 .question {
-    color: #FFF;
+    color: #000;
     font-size: 18px;
     margin: 20px 0;
+    font-weight: 600;
+    font-size: 23px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+
 .option {
     display: flex;
     align-items: center;
-    height: 40px;
-    background-color: rgba(0, 0, 0, 0.3);
+    height: auto;
+    background-color: rgba(0, 0, 0, 1);
     border-radius: 10px;
     margin-bottom: 5px;
-    color: #AAA;
+    color: white;
     font-size: 16px;
     cursor: pointer;
+    padding: 5px 5px;
+
 }
+
 .option span {
     display: flex;
     justify-content: center;
@@ -70,34 +81,39 @@ h1 {
     background-color: rgba(0, 0, 0, 0.8);
     color: #555;
 }
+
 .option:hover {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .scoreArea {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 1);
     padding: 20px;
     border-radius: 20px;
     margin: 10px;
     text-align: center;
 }
+
 .prizeImage {
     width: auto;
     height: 100px;
     margin-bottom: 10px;
 }
+
 .scoreText1 {
     color: #000;
     font-size: 23px;
     font-weight: bold;
     margin-bottom: 10px;
 }
+
 .scorePct {
     color: #0d630d;
     font-size: 30px;
     font-weight: bold;
     margin-bottom: 10px;
 }
+
 .scoreText2 {
     font-size: 16px;
     color: #000;
@@ -107,63 +123,99 @@ h1 {
 .scoreArea button {
     border: 0;
     border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.8);
     color: #CCC;
     padding: 10px;
     margin-top: 20px;
     cursor: pointer;
 }
+
 .scoreArea button:hover {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 1);
 }
 
 footer {
     margin-top: 20px;
-    color: #FFF;
+    color: black;
     font-size: 13px;
     text-align: center;
+    font-weight: 600;
 }
 
-footer a{
+footer a {
     text-decoration: underline;
-    color: white;
+    color: black;
     cursor: pointer;
-}
-footer a:hover{
-    color:yellow;
+    font-weight: 600;
 }
 
-.hidden-container{
+footer a:hover {
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.4s;
+}
+
+.hidden-container {
     display: none;
 }
 
-.start-game{
+.start-game {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    box-shadow: 9px 9px 22px 1px rgba(0, 0, 0, 0.75);
+    padding: 10px 15px;
+    border-radius: 10px;
+    background-color: #e3e3e3;
 }
 
-.start-btn{
+.start-btn {
     font-weight: bold;
     font-size: 1rem;
     padding: 0.75rem 1rem;
-    background-color: aquamarine;
+    background: linear-gradient(to right, #555 , #999);
     cursor: pointer;
     margin-top: 0.75rem;
     border-radius: 10px;
-}
-.hidden-select{
-    padding: 10px 20px;
+    box-shadow: 4px 4px 15px 1px rgba(0, 0, 0, 0.75);
     color:white;
+}
+
+.start-btn:hover {
+    animation-name: hoverBtn;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards
+}
+
+.hidden-select {
+    padding: 10px 20px;
+    color: white;
     background-color: #333;
     border-radius: 10px;
     margin-top: 0.3rem;
-    
+    opacity: 0.8;
+
 }
-.hidden-title{
-    color:white;
-    font-weight: 600;
+
+.hidden-select:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.hidden-title {
+    font-weight: bold;
     font-size: 23px;
 
+}
+
+@keyframes hoverBtn {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.05);
+    }
 }

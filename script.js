@@ -1,10 +1,13 @@
 //Inicial Data
+
 let currentQuestion = 0;
 let correctAnswer = 0
+let questionary = undefined
 
 //Actions
 document.querySelector('.try-again-btn').addEventListener('click', resetQuiz)
 document.querySelector('.start-btn').addEventListener('click', startGame);
+document.querySelector('.change-dificulty-btn').addEventListener('click', changeDificulty);
 
 
 //Functions
@@ -16,30 +19,29 @@ function startGame() {
 
     //Variável que contém o nível que o usuário selecionou
     let gameDificult = document.querySelector('.hidden-select').value
-
     //Criando variáveis que vão conter o nível selecionado pelo usuário
     let easyDificult = questions.slice(0, 10)
     let mediumDificult = questions.slice(10, 20)
     let hardDificult = questions.slice(20)
 
     if (gameDificult === 'easy') {
-        questions = easyDificult
+        questionary = easyDificult
     }
     if (gameDificult === 'medium') {
-        questions = mediumDificult
+        questionary = mediumDificult
     }
     if (gameDificult === 'hard') {
-        questions = hardDificult
+        questionary = hardDificult
     }
     showQuestion()
 }
 
 function showQuestion() {
-    if (questions[currentQuestion]) {
-        let q = questions[currentQuestion] //Variável que vai conter o número da questão dentro do Array.
+    if (questionary[currentQuestion]) {
+        let q = questionary[currentQuestion] //Variável que vai conter o número da questão dentro do Array.
 
         //Atualizando a barra de progresso sempre que troca de questão
-        let pctBar = Math.floor((currentQuestion / questions.length) * 100) //Variável que vai armazenar o tamanho da barrinha superior sempre acompanhando a questão atual (Math.floor pra arredondar os números).
+        let pctBar = Math.floor((currentQuestion / questionary.length) * 100) //Variável que vai armazenar o tamanho da barrinha superior sempre acompanhando a questão atual (Math.floor pra arredondar os números).
         document.querySelector(".progress--bar").style.width = `${pctBar}%`
 
         document.querySelector(".scoreArea").style.display = 'none'
@@ -90,20 +92,20 @@ function clickOptionEvent(e) {
 
 function finishQuiz() {
     //Criando a variável que vai calcular a porcentagem de acertos
-    let points = Math.floor((correctAnswer / questions.length) * 100)
+    let points = Math.floor((correctAnswer / questionary.length) * 100)
 
     //Exibindo a porcentagem de acertos
     document.querySelector(".scorePct").innerHTML = `Acertou ${points}%`
 
     //Exibindo o número total de acertos
-    document.querySelector(".scoreText2").innerHTML = `Você acertou ${correctAnswer} de ${questions.length} questões!`
+    document.querySelector(".scoreText2").innerHTML = `Você acertou ${correctAnswer} de ${questionary.length} questões!`
 
     //Alterando a cor e o texto conforme a performance
     if (points < 40) {
         document.querySelector('.scoreText1').style.color = 'red'
         document.querySelector('.scoreText1').innerHTML = 'Insuficiente! Estude mais e não desista!'
     } else if (points >= 40 && points < 80) {
-        document.querySelector('.scoreText1').style.color = 'yellow'
+        document.querySelector('.scoreText1').style.color = 'red'
         document.querySelector('.scoreText1').innerHTML = 'Boa! Mais um pouco de estudo e você ficará muito bom!'
     } else if (points >= 80) {
         document.querySelector('.scoreText1').style.color = '#0d630d'
@@ -123,3 +125,13 @@ function resetQuiz() {
     correctAnswer = 0
     showQuestion()
 }
+
+function changeDificulty() {
+    currentQuestion = 0;
+    correctAnswer = 0
+    document.querySelector('.start-game').style.display = 'block'
+    document.querySelector('.hidden-container').style.display = 'none'
+    document.querySelector('.start-btn').addEventListener('click', startGame);
+    
+}
+
